@@ -1,7 +1,15 @@
-import React from "react";
-import { Menu } from "@headlessui/react";
+import React, { useState } from "react";
+
 import Dropdown from "./Dropdown";
+import { Card } from "./Card";
+import { DATA } from "../MOCK_DATA";
 export function Home() {
+  const [propArr, setPropArr] = useState(DATA);
+  const filterData = (propObj) => {
+    const filterArr = DATA.filter((obj) => obj === propObj);
+    setPropArr(filterArr);
+  };
+  console.log(DATA);
   return (
     <>
       {/* Navbar */}
@@ -62,8 +70,59 @@ export function Home() {
           </div>
         </div>
       </nav>
+      <div className="flex mx-auto w-[420px]">
+        <Dropdown
+          optionName={"Location"}
+          defaultSelected={"Default"}
+          menuArray={DATA}
+          itemText={"property_name"}
+          filterData={filterData}
+          itemValue={"id"}
+        />
 
-      <Dropdown />
+        <Dropdown
+          optionName={"Date"}
+          defaultSelected={"Default"}
+          menuArray={DATA}
+          itemText={"date"}
+          filterData={filterData}
+          itemValue={"date"}
+        />
+
+        <Dropdown
+          optionName={"Price"}
+          defaultSelected={"Default"}
+          menuArray={DATA}
+          itemText={"price"}
+          filterData={filterData}
+          itemValue={"price"}
+        />
+
+        <Dropdown
+          optionName={"Type"}
+          defaultSelected={"Default"}
+          menuArray={DATA}
+          itemText={"property_type"}
+          filterData={filterData}
+          itemValue={"property_type"}
+        />
+
+        <button
+          type="button"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
+        >
+          Search
+        </button>
+        <button
+          onClick={() => setPropArr(DATA)}
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
+        >
+          Reset
+        </button>
+      </div>
+      {propArr.map((i) => (
+        <Card title={i.property_name} desc={i.price} actionBtn={"Info"} />
+      ))}
     </>
   );
 }
