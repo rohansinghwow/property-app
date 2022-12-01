@@ -1,5 +1,6 @@
 import React from "react";
-
+import { Menu } from "@headlessui/react";
+import Dropdown from "./Dropdown";
 export function Home() {
   return (
     <>
@@ -61,6 +62,8 @@ export function Home() {
           </div>
         </div>
       </nav>
+
+      <Dropdown />
     </>
   );
 }
