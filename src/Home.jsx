@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Dropdown from "./Dropdown";
 import { Card } from "./Card";
 import { DATA } from "../MOCK_DATA";
 export function Home() {
+  const [formObj, setFormObj] = useState({});
+  const [favour, setFavour] = useState([]);
   const [propArr, setPropArr] = useState(DATA);
-  const filterData = (propObj) => {
-    const filterArr = DATA.filter((obj) => obj === propObj);
-    setPropArr(filterArr);
+  const filterData = () => {
+    const res = DATA.filter((item) =>
+      Object.entries(formObj).every(([key, value]) => item[key] === value)
+    );
+
+    // .entries(([key, value]) => row[key] === value)
+    // setPropArr(res);
+    console.log(res);
+    setPropArr(res);
   };
+
   console.log(DATA);
+  useEffect(() => {
+    console.log(formObj);
+  }, [formObj]);
   return (
     <>
       {/* Navbar */}
@@ -70,44 +82,45 @@ export function Home() {
           </div>
         </div>
       </nav>
-      <div className="flex mx-auto w-[420px]">
+      <div className="flex mx-auto justify-around items-center w-[420px]">
         <Dropdown
-          optionName={"Location"}
-          defaultSelected={"Default"}
+          label={"Where"}
           menuArray={DATA}
-          itemText={"property_name"}
+          itemText={"location"}
           filterData={filterData}
-          itemValue={"id"}
+          itemValue={"location"}
+          setFormObj={setFormObj}
         />
 
         <Dropdown
-          optionName={"Date"}
-          defaultSelected={"Default"}
+          label={"When"}
           menuArray={DATA}
           itemText={"date"}
           filterData={filterData}
           itemValue={"date"}
+          setFormObj={setFormObj}
         />
 
         <Dropdown
-          optionName={"Price"}
-          defaultSelected={"Default"}
+          label={"Price"}
           menuArray={DATA}
           itemText={"price"}
           filterData={filterData}
           itemValue={"price"}
+          setFormObj={setFormObj}
         />
 
         <Dropdown
-          optionName={"Type"}
-          defaultSelected={"Default"}
+          label={"Type"}
           menuArray={DATA}
           itemText={"property_type"}
           filterData={filterData}
           itemValue={"property_type"}
+          setFormObj={setFormObj}
         />
 
         <button
+          onClick={filterData}
           type="button"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 "
         >
@@ -120,9 +133,16 @@ export function Home() {
           Reset
         </button>
       </div>
-      {propArr.map((i) => (
-        <Card title={i.property_name} desc={i.price} actionBtn={"Info"} />
-      ))}
+      <div className="w-[75%] flex mx-auto items-left flex-wrap">
+        {propArr.map((i) => (
+          <Card
+            img={i.img}
+            title={i.property_name}
+            desc={i.price}
+            actionBtn={"Favourite"}
+          />
+        ))}
+      </div>
     </>
   );
 }
