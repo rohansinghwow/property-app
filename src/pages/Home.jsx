@@ -69,7 +69,7 @@ export function Home() {
             </div>
           </form>
 
-          <a href="https://flowbite.com/" className="flex items-center">
+          <div href="" className="flex items-center">
             <img
               src="https://img.icons8.com/nolan/512/home-page.png"
               className="h-6 mr-3 sm:h-9"
@@ -78,7 +78,7 @@ export function Home() {
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               Property
             </span>
-          </a>
+          </div>
           <button
             data-collapse-toggle="navbar-default"
             type="button"
