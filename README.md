@@ -1,56 +1,48 @@
-# Nano React App Default Javascript Template
+# How to run this project
 
-The default template project for [nano-react-app](https://github.com/nano-react-app/nano-react-app).
-
-- `npm start` — This will spawn a development server with a default port of `5173`.
-- `npm run build` — This will output a production build in the `dist` directory.
-- `npm run preview` — This will run the production build locally with a default port of `5173` (this will not work if you haven't generated the production build yet).
-
-## Custom port
-
-You can use the `-p` flag to specify a port for development. To do this, you can either run `npm start` with an additional flag:
+1. install all the packages
 
 ```
-npm start -- --port 3000
+npm i
 ```
 
-Or edit the `start` script directly:
+2. run this project
 
 ```
-vite --port 3000
+npm start
 ```
 
-## Adding styles
+### Tech Used
 
-You can use CSS files with simple ES2015 `import` statements anywhere in your Javascript:
+- Vite for super fast build/serve time .
+- Windi CSS for super-fast CSS build speed . Same as Tailwind CSS but faster.
+- React JS
+- React Router Dom
+- Zustand - Global State management
 
-```js
-import "./index.css";
-```
+# Important Files
 
-## Babel transforms
+### Dropdown.jsx
 
-The Babel preset [babel-preset-nano-react-app](https://github.com/nano-react-app/babel-preset-nano-react-app) is used to support the same transforms that Create React App supports.
+- Csutom made dropdown component .
+- Custom props can be passed as required
 
-The Babel configuration lives inside `package.json` and will override an external `.babelrc` file, so if you want to use `.babelrc` remember to delete the `babel` property inside `package.json`.
+### Home.jsx
 
+- Contains the search bar , navbar, list of properties
 
-## Deploy to GitHub Pages
+### Favourite.jsx
 
-You can also deploy your project using GitHub pages.
-First install the `gh-pages` [package](https://github.com/tschaub/gh-pages):
+- Used to display the favourites
 
-`npm i -D gh-pages`
+### Card.jsx
 
-Use the following scripts for deployment:
+- The card component used to render list of properties with custom props.
 
-```js
-"scripts": {
-  "start": "vite",
-  "build": "vite build",
-  "predeploy": "rm -rf dist && vite build",
-  "deploy": "gh-pages -d dist"
-},
-```
+## store.js
 
-Then follow the normal procedure in GitHub Pages and select the `gh-pages` branch.
+- Global state to handle favourite feature.
+
+### Contact Me
+
+Email - rohansinghwow@gmail.com

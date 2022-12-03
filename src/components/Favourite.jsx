@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useFavourStore } from "./store/store";
+import { useFavourStore } from "../store/store";
 export function Favourite() {
   const uniqueIds = [];
   const favours = useFavourStore((state) => state.favour);
@@ -27,8 +27,9 @@ export function Favourite() {
             .filter((data, index) => {
               return favours.indexOf(data) === index;
             })
-            ?.map((i) => (
+            ?.map((i, idx) => (
               <a
+                key={idx}
                 href="#"
                 className="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
               >

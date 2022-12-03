@@ -1,5 +1,5 @@
 import React from "react";
-import { useFavourStore } from "./store/store";
+import { useFavourStore } from "../store/store";
 
 export function Card({ img = "", actionBtn, title, desc, location }) {
   const { setFavour } = useFavourStore((state) => state);

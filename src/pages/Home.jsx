@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Dropdown from "./Dropdown";
-import { Card } from "./Card";
-import { DATA } from "../MOCK_DATA";
-import { useFavourStore } from "./store/store";
+import Dropdown from "../components/Dropdown";
+import { Card } from "../components/Card";
+import { DATA } from "../../MOCK_DATA";
+import { useFavourStore } from "../store/store";
 
 export function Home() {
   const [formObj, setFormObj] = useState({});

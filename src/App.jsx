@@ -1,7 +1,7 @@
 import React from "react";
-import { Home } from "./Home";
+import { Home } from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
-import { Favourite } from "./Favourite";
+import { Favourite } from "./components/Favourite";
 export default () => (
   <>
     <Routes>
