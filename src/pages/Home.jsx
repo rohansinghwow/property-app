@@ -110,7 +110,7 @@ export function Home() {
           </div>
         </div>
       </nav>
-      <div className="flex shadow-md  mx-auto justify-around items-center w-[420px]">
+      <div className="flex shadow-md rounded-md mx-auto justify-around items-center flex-wrap max-w-[420px]">
         <Dropdown
           label={"Where"}
           menuArray={DATA}
