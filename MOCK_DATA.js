@@ -53,5 +53,23 @@ export const DATA = [
     "property_name": "California Home",
     "property_type": "House",
     "img": 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+  },
+  {
+    "id": 7,
+    "location": "India",
+    "date": "10/8/2022",
+    "price": 52,
+    "property_name": "Trikoot Palace",
+    "property_type": "Palace",
+    "img": 'https://images.pexels.com/photos/36366/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+  },
+  {
+    "id": 8,
+    "location": "Africa",
+    "date": "12/8/2022",
+    "price": 32,
+    "property_name": "Snow House",
+    "property_type": "House",
+    "img": 'https://images.pexels.com/photos/11563032/pexels-photo-11563032.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   }
 ]
